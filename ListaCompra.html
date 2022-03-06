@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script>
+		var id=0;
+        
+		function anadirProducto()
+		{
+			var num_elementos_lista=document.getElementsByTagName("li").length;
+			var objeto_li=document.createElement("li");
+			objeto_li.onclick=function(){borrarElemento(objeto_li);}
+
+			var producto=document.getElementsByTagName("input")[0].value;
+			objeto_li.innerHTML=producto;
+
+			document.getElementsByTagName("input")[0].value="";
+			document.getElementsByTagName("ul")[0].appendChild(objeto_li);
+			
+			
+		}
+
+		function borrarElemento(x)//Se puiede llamar tb objeto_li ;-)
+		{
+			document.getElementsByTagName("ul")[0].removeChild(x);
+		}
+	
+	</script>
+    <style>
+        body{
+        background-color: rgb(171, 255, 255);
+        }
+    </style>
+</head>
+<body>
+    <h2>Lista de la compra</h2>
+    <p>Introduce tu lista de la compra, para eliminar elementos haz clic en el mismo.</p>
+	<input type="text" placeholder="Introduce la compra">
+	<ul>
+
+	</ul>
+    <input type="button" onclick="anadirProducto();" value="Haz Clic">
+
+</body>
+</html>
